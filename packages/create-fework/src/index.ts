@@ -11,14 +11,11 @@ const __dirname = path.dirname(__filename);
 const currentWorkingDirectory = process.cwd();
 const defaultTargetDir = "fework-app";
 
+// 创建项目
 async function createProject(projectName: string, template: string) {
   const formatProjectName = `${projectName}`.trim().replace(/\/+$/g, "");
   const formatTemplate = `${template}`.trim().toLowerCase();
-  console.log(
-    `Creating a new project, template=${chalk.blue(
-      formatTemplate
-    )} formatProjectName=${chalk.blue(formatProjectName)}`
-  );
+
   // 这里添加创建项目的逻辑
   const projectDir = path.join(currentWorkingDirectory, formatProjectName);
   const templateDir = path.join(__dirname, `../templates/${formatTemplate}`);
@@ -32,8 +29,6 @@ async function createProject(projectName: string, template: string) {
     );
     return;
   } else {
-    console.log(templateDir);
-    console.log(projectDir);
     if (!isExists) {
       fs.ensureDirSync(projectDir);
     }
@@ -48,6 +43,7 @@ async function createProject(projectName: string, template: string) {
   }
 }
 
+// 创建项目命令
 async function createProjectWithPrompt() {
   const platforms = [
     {
@@ -142,7 +138,6 @@ async function createProjectWithPrompt() {
     }
   );
 
-  console.log(response);
   // 这里添加创建项目的逻辑
   const { projectName, template } = response;
   if (projectName && template) {
@@ -183,6 +178,10 @@ async function init() {
 
 function usage() {
   console.log(`${chalk.whiteBright("fework [CMD]")}
+  ${chalk.greenBright("create")}\tCreate a new project with prompt
+  ${chalk.greenBright(
+    "create [PROJECT_NAME] --template [TEMPLATE]"
+  )}\tCreate a new project
   ${chalk.greenBright("--help")}\tShow this help message`);
 }
 
