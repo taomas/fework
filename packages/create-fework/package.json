@@ -13,6 +13,7 @@
     "dist"
   ],
   "scripts": {
+    "dev": "rollup -c -w",
     "build": "rollup -c",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
@@ -25,17 +26,18 @@
   "license": "ISC",
   "dependencies": {
     "@types/cross-spawn": "^6.0.6",
-    "@types/minimist": "^1.2.5",
-    "@types/prompts": "^2.4.9",
     "cross-spawn": "^6.0.5",
-    "kolorist": "^1.8.0",
-    "minimist": "^1.2.8",
-    "prompts": "^2.4.2",
-    "unbuild": "^2.0.0"
+    "kolorist": "^1.8.0"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
+    "@types/fs-extra": "^11.0.4",
+    "@types/minimist": "^1.2.5",
+    "@types/prompts": "^2.4.9",
     "chalk": "^5.3.0",
+    "fs-extra": "^11.2.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
     "rollup": "^4.18.0",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5"
