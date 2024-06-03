@@ -35,11 +35,13 @@ async function createProject(projectName: string, template: string) {
 
     // 复制模板文件到项目目录
     fs.copySync(templateDir, projectDir);
-    console.log(
-      `Project ${chalk.green(formatProjectName)} created at ${chalk.green(
-        projectDir
-      )}`
-    );
+    console.log();
+    console.log(`Project created at ${chalk.green(projectDir)}`);
+    console.log("Now run:");
+    console.log(chalk.greenBright(`cd ${formatProjectName}`));
+    console.log(chalk.greenBright("pnpm install"));
+    console.log(chalk.greenBright("pnpm run dev"));
+    console.log();
   }
 }
 
